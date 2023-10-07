@@ -33,7 +33,7 @@ type CanvasSize = {
 
 const Particles = ({
   className = '',
-  quantity = 50,
+  quantity = 100,
   refresh = false,
   staticity = 50,
   ease = 50,
