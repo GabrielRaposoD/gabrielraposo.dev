@@ -1,14 +1,62 @@
-import { Navigation } from '@/components';
+import { Article, Card, Navigation } from '@/components';
 
-export default function Projects() {
+import React from 'react';
+import { allProjects } from 'contentlayer/generated';
+
+export const revalidate = 60;
+
+export default async function ProjectsPage() {
+  const sorted = allProjects
+    .filter((p) => p.published)
+    .sort(
+      (a, b) =>
+        new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
+        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
+    );
+
   return (
-    <main className='bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0'>
+    <div className='relative pb-16'>
       <Navigation />
-      <div className='container flex items-center justify-center min-h-screen h-full px-4 mx-auto'>
-        <h1 className='z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text'>
-          Coming Soon
-        </h1>
+      <div className='px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32'>
+        <div className='max-w-2xl mx-auto lg:mx-0'>
+          <h2 className='text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl'>
+            Projects
+          </h2>
+          <p className='mt-4 text-zinc-400'>
+            Some of the projects are from work and some are on my own time.
+          </p>
+        </div>
+        <div className='w-full h-px bg-zinc-800' />
+        <div className='grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3'>
+          <div className='grid grid-cols-1 gap-4'>
+            {sorted
+              .filter((_, i) => i % 3 === 0)
+              .map((project) => (
+                <Card key={project.slug}>
+                  <Article project={project} />
+                </Card>
+              ))}
+          </div>
+          <div className='grid grid-cols-1 gap-4'>
+            {sorted
+              .filter((_, i) => i % 3 === 1)
+              .map((project) => (
+                <Card key={project.slug}>
+                  <Article project={project} />
+                </Card>
+              ))}
+          </div>
+          <div className='grid grid-cols-1 gap-4'>
+            {sorted
+              .filter((_, i) => i % 3 === 2)
+              .map((project) => (
+                <Card key={project.slug}>
+                  <Article project={project} />
+                </Card>
+              ))}
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

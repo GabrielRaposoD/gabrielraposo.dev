@@ -1,0 +1,47 @@
+---
+published: true
+title: Short It
+description: Short It is a URL Shortener made with Next.
+date: "2024-01-21"
+url: https://shortit.gabrielraposo.dev/
+repository: GabrielRaposoD/short-it
+---
+
+## ⚙️ Made with:
+
+- Next.JS
+- TailwindCSS
+- Prisma
+- Supabase
+
+## ⚙️ Installation
+
+Clone the project
+
+```bash
+# Clone the repository
+git clone https://github.com/GabrielRaposoD/short-it
+
+
+# Go to the project directory
+cd short-it
+
+
+#Install dependencies
+pnpm install
+
+# Create a .env file at the root of your project and update with your API URL and encryption key:
+DATABASE_URL=your_database_url
+NEXT_PUBLIC_HOST_URL=your_host_url
+
+# Run Prisma push to set up the database schema
+npx prisma db push
+
+# Start the server
+pnpm run dev
+```
+
+## 🚀 Deployment
+
+Short It is hosted on Vercel, a cloud platform that enables seamless deployment and scaling of web applications. The platform’s integration with GitHub allows for automatic deployments upon code changes, ensuring a smooth and efficient development process.
+

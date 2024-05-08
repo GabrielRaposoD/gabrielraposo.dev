@@ -1,0 +1,65 @@
+---
+published: true
+title: Animequiz Backend
+description: The backend for the Animequiz App.
+date: "2023-10-18"
+repository: GabrielRaposoD/animequiz.app-backend
+---
+
+This is the backend repository for the **[Animequiz](/projects/animequiz)** app. This backend is engineered using Nest.js for robust server-side architecture, PostgreSQL for a powerful relational database, and Prisma as an ORM to facilitate smooth data management and schema migration.
+
+## 🚀 Features
+
+- **RESTful API**: Secure and scalable endpoints for quiz data operations such as retrieve, create, update, and delete.
+- **Prisma ORM**: Leverages Prisma to handle ORM tasks, simplifying database workflows and ensuring efficient data handling.
+- **Supabase**: Utilizes Supabase as a provider to offer a scalable and managed PostgreSQL database.
+- **Comprehensive Error Handling**: Advanced error handling mechanisms to maintain API reliability and integrity.
+- **Automated Testing**: Comprehensive test suite including unit and integration tests to ensure application reliability and quality.
+- **GraphQL Integration**: Integrates with the AniList GraphQL API to scrap anime data for the quiz questions.
+
+## ⚙️ Installation
+
+Follow these steps to set up the backend environment locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/GabrielRaposoD/animequiz.app-backend.git
+
+# Navigate to the project directory
+cd animequiz.app-backend
+
+# Install dependencies
+pnpm install
+
+# Create a .env file at the root of your project and update with your database and JWT settings:
+ANIME_API_URL=https://graphql.anilist.co
+DATABASE_URL="postgresql://YourUsername:YourPassword@YourHost:YourPort/YourDatabaseName?schema=public"
+JWT_SECRET="YourJWTSecretKey"
+ENCRYPTION_KEY="YourEncryptionKey"
+
+# Run Prisma push to set up the database schema
+pnpm db:push
+
+# Seed the database with quiz data
+pnpm db:seed:animes
+pnpm db:seed
+
+# Start the server
+pnpm start
+```
+
+## 🛠️ Technologies
+
+- **Nest.js**: A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
+- **Prisma**: A modern database toolkit that simplifies database workflows and ensures efficient data handling.
+- **PostgreSQL**: A powerful, open-source relational database system known for its reliability and robust features.
+- **Supabase**: An open-source alternative to Firebase that provides a scalable and managed PostgreSQL database.
+- **Jest**: A delightful JavaScript testing framework for unit and integration tests.
+
+## 🚀 Deployment
+
+The backend for Animequiz is hosted on Railway, a platform that simplifies the deployment and scaling of web applications. Railway’s seamless integration with GitHub enables automatic deployments upon code changes, ensuring a smooth and efficient development process.
+
+
+
+
